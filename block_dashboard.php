@@ -44,7 +44,7 @@ class block_dashboard extends block_base {
         $reviewicon = $OUTPUT->pix_icon('review', $strreview, 'block_dashboard');
         $handbookicon = $OUTPUT->pix_icon('handbook', $strhandbook, 'block_dashboard');
 
-	$markingicon = $OUTPUT->pix_icon('grades', $strgrades, 'block_dashboard');
+    $markingicon = $OUTPUT->pix_icon('grades', $strgrades, 'block_dashboard');
 
 
         $timetablelabel = $OUTPUT->container($strtimetable, 'dashlabel');
