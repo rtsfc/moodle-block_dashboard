@@ -35,12 +35,17 @@ class block_dashboard extends block_base {
         $strreview = get_string('review', 'block_dashboard');
         $strhandbook = get_string('handbook', 'block_dashboard');
 
+        $strmarking = get_string('marking', 'block_dashboard');
+
         $timetableicon = $OUTPUT->pix_icon('timetable', $strtimetable, 'block_dashboard');
         $attendanceicon = $OUTPUT->pix_icon('attendance', $strattendance, 'block_dashboard');
         $examsicon = $OUTPUT->pix_icon('exams', $strexams, 'block_dashboard');
         $gradesicon = $OUTPUT->pix_icon('grades', $strgrades, 'block_dashboard');
         $reviewicon = $OUTPUT->pix_icon('review', $strreview, 'block_dashboard');
         $handbookicon = $OUTPUT->pix_icon('handbook', $strhandbook, 'block_dashboard');
+
+    $markingicon = $OUTPUT->pix_icon('grades', $strgrades, 'block_dashboard');
+
 
         $timetablelabel = $OUTPUT->container($strtimetable, 'dashlabel');
         $attendancelabel = $OUTPUT->container($strattendance, 'dashlabel');
@@ -49,12 +54,16 @@ class block_dashboard extends block_base {
         $reviewlabel = $OUTPUT->container($strreview, 'dashlabel');
         $handbooklabel = $OUTPUT->container($strhandbook, 'dashlabel');
 
+	$markinglabel = $OUTPUT->container($strmarking, 'dashlabel');
+
         $timetableurl = new moodle_url('/blocks/mrbs/web/userweek.php');
         $attendanceurl = new moodle_url('/local/intranet/user/attendance.php', array('id' => $USER->id));
         $examsurl = new moodle_url('/local/intranet/user/exams.php', array('id' => $USER->id));
         $gradesurl = new moodle_url('/local/intranet/user/grades.php', array('id' => $USER->id));
         $reviewurl = new moodle_url('/local/progressreview/user.php', array('userid' => $USER->id));
         $handbookurl = new moodle_url('/pluginfile.php/88573/block_html/content/Student%20Info%20booklet%202011_2012.pdf');
+	
+	$markingurl = new moodle_url('/blocks/dashboard/Marking_Literacy.docx');
 
         $content = '';
         $hw = 'html_writer';
@@ -64,6 +73,8 @@ class block_dashboard extends block_base {
         $content .= $OUTPUT->container($hw::link($reviewurl, $reviewicon.$reviewlabel), 'dashcell');
         $content .= $OUTPUT->container($hw::link($examsurl, $examsicon.$examslabel), 'dashcell');
         $content .= $OUTPUT->container($hw::link($handbookurl, $handbookicon.$handbooklabel), 'dashcell');
+
+	$content .= $OUTPUT->container($hw::link($markingurl, $markingicon.$markinglabel), 'dashcell');
 
         $content .= $hw::tag('div', '', array('class' => 'clearfix'));
 
